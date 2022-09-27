@@ -16,10 +16,10 @@ data Symmetry (n ∷ Natural) where
 symmetryToPermutation ∷ ∀ n. KnownNat n ⇒ Symmetry n → Permutation (Finite n)
 symmetryToPermutation ZeroSymmetry = mempty
 symmetryToPermutation (SuccessorSymmetry previousSymmetry whereLastOneGoes) =
-  let Permutation {..} = symmetryToPermutation previousSymmetry
-  in Permutation
-     { from = \ finite → case strengthen finite of
-         Nothing → whereLastOneGoes
-         Just smallerFinite → (face whereLastOneGoes ∘ from) smallerFinite
-     , to = \ finite → if finite ≡ whereLastOneGoes then maxBound else (weaken ∘ to ∘ degeneracy whereLastOneGoes) finite
-     }
+  let Permutation{..} = symmetryToPermutation previousSymmetry
+   in Permutation
+        { from = \finite → case strengthen finite of
+            Nothing → whereLastOneGoes
+            Just smallerFinite → (face whereLastOneGoes ∘ from) smallerFinite
+        , to = \finite → if finite ≡ whereLastOneGoes then maxBound else (weaken ∘ to ∘ degeneracy whereLastOneGoes) finite
+        }

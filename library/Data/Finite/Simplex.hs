@@ -7,7 +7,7 @@ import Data.Finite
 face ∷ Finite (n + 1) → Finite n → Finite (n + 1)
 face threshold vertex =
   let weakerVertex = weaken vertex
-  in if weakerVertex < threshold then weakerVertex else shift vertex
+   in if weakerVertex < threshold then weakerVertex else shift vertex
 
 degeneracy ∷ KnownNat n ⇒ Finite (n + 1) → Finite (n + 1) → Finite n
 degeneracy threshold vertex = case (strengthen vertex, unshift vertex) of

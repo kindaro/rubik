@@ -39,5 +39,5 @@ test-suite checks
   import: commons
   type: exitcode-stdio-1.0
   hs-source-dirs: test-suites/checks
-  build-depends: tasty, tasty-quickcheck, rubik
   main-is: Main.hs
+  build-depends: rubik, tasty, tasty-quickcheck
