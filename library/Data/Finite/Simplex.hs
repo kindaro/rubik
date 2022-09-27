@@ -4,12 +4,12 @@ import GHC.TypeLits
 
 import Data.Finite
 
-face ∷ Finite (n + 1) → Finite n → Finite (n + 1)
+face ∷ Finite (size + 1) → Finite size → Finite (size + 1)
 face threshold vertex =
   let weakerVertex = weaken vertex
    in if weakerVertex < threshold then weakerVertex else shift vertex
 
-degeneracy ∷ KnownNat n ⇒ Finite (n + 1) → Finite (n + 1) → Finite n
+degeneracy ∷ KnownNat size ⇒ Finite (size + 1) → Finite (size + 1) → Finite size
 degeneracy threshold vertex = case (strengthen vertex, unshift vertex) of
   (_, Nothing) → 0
   (Nothing, Just smallerVertex) → smallerVertex
