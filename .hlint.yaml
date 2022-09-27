@@ -1,0 +1,3 @@
+- ignore: {name: "Use <$>"}
+- ignore: {name: "Replace case with maybe"}
+- warn: {name: Redundant bracket due to operator fixities}
