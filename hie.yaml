@@ -5,3 +5,6 @@ cradle:
 
     - path: "executables/rubik/Main.hs"
       component: "rubik:exe:rubik"
+
+    - path: "test-suites/checks"
+      component: "rubik:test:checks"

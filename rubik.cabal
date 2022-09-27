@@ -4,18 +4,40 @@ version: 0.1.0.0
 license: ISC
 
 common commons
-  build-depends: base, base-unicode-symbols, containers, containers-unicode-symbols, finite-typelits, group-theory
+  build-depends:
+    , base
+    , base-unicode-symbols
+    , containers
+    , containers-unicode-symbols
+    , finite-typelits
+    , group-theory
+
   default-language: GHC2021
-  default-extensions: BlockArguments UnicodeSyntax MultiWayIf DataKinds TypeFamilies RecordWildCards
+  default-extensions:
+    BlockArguments
+    DataKinds
+    MultiWayIf
+    RecordWildCards
+    TypeFamilies
+    UnicodeSyntax
+    ViewPatterns
+
   ghc-options: -Wall -Wextra -Wno-name-shadowing
 
 library
   import: commons
   hs-source-dirs: library
-  exposed-modules: Rubik
+  exposed-modules: Data.Finite.Simplex Data.Group.Symmetry Rubik
 
 executable rubik
   import: commons
   hs-source-dirs: executables/rubik
   main-is: Main.hs
   build-depends: rubik
+
+test-suite checks
+  import: commons
+  type: exitcode-stdio-1.0
+  hs-source-dirs: test-suites/checks
+  build-depends: tasty, tasty-quickcheck, rubik
+  main-is: Main.hs
