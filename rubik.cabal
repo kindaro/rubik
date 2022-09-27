@@ -21,8 +21,9 @@ common commons
     TypeFamilies
     UnicodeSyntax
     ViewPatterns
+    PatternSynonyms
 
-  ghc-options: -Wall -Wextra -Wno-name-shadowing
+  ghc-options: -Wall -Wextra
 
 library
   import: commons
